@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Wave-Sage
+    </ion-title>
+
+    <ion-buttons end>
+    	<button navPush="AddSessionPage" ion-button>
+    		<ion-icon name="add"></ion-icon>
+    	</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-list-header>
+      Sessions
+    </ion-list-header>
+    <ion-item style="zoom:0.75;" *ngFor="let session of sessionLog$ | async" detail-push navPush="EditSessionPage" [navParams]="{ session: session }">
+      {{ session.date }} {{ session.location }}
+    </ion-item>
+  </ion-list>
+
+</ion-content>
